@@ -27,21 +27,63 @@ AI 기반 여행지 추천 & 경로 최적화 앱 (졸업 프로젝트)
 
 ---
 
+## 📱 주요 화면 (Activity) 구성
+
+| Activity 파일명 | 용도 설명 |
+|------------------|-----------|
+| `MainActivity.kt` | 앱 실행 시 시작 지점. 로그인 상태에 따라 홈 또는 로그인으로 이동 예정 |
+| `HomeActivity.kt` | 메인 홈 화면. 플랜 생성, 게시판, 설정 등 주요 기능으로 연결되는 허브 |
+| `PlanActivity.kt` | 여행 플랜 생성 흐름의 메인 화면. 키워드 입력부터 동선 추천까지 처리 |
+| `MyPlanActivity.kt` | 사용자가 저장한 여행 플랜 목록을 확인하는 화면 |
+| `BoardActivity.kt` | 커뮤니티 게시판. 여행 후기나 질문 등 자유로운 소통 공간 |
+| `SettingsActivity.kt` | 알림 설정, 로그아웃, 사용자 정보 등 설정 관련 기능 제공 |
+| `LoginActivity.kt` | 사용자 로그인 화면. Firebase Auth와 연동 예정 |
+| `SplashActivity.kt` | 앱 로딩 시 잠깐 보여지는 스플래시 화면. 자동 로그인 여부 처리 |
+| `DetailActivity.kt` | 게시글, 관광지, 여행 플랜 등 상세정보를 보여주는 화면 |
+| `NotificationActivity.kt` | 댓글, 공지, 시스템 알림 등을 표시하는 알림 화면 |
+
+---
+
 ## 🗂️ 디렉토리 구조 (기능 기반)
+
 ```
 java/com/f4/recotrip/
-├── ui/
-│   ├── home/
-│   ├── plan/
-│   │   ├── fragment/
-│   │   └── PlanViewModel.kt
-│   ├── board/
-│   └── settings/
-├── model/
-├── adapter/
-├── repository/
+├── ui/                             ← 사용자 화면
+│   ├── home/                       ← 홈 화면
+│   │   └── HomeActivity.kt
+│
+│   ├── plan/                       ← 플랜 생성 관련 화면
+│   │   ├── PlanActivity.kt
+│   │   ├── MyPlanActivity.kt
+│   │   ├── PlanViewModel.kt
+│   │   └── fragment/
+│   │       ├── KeywordFragment.kt
+│   │       └── CityFragment.kt
+│
+│   ├── board/                      ← 커뮤니티 게시판
+│   │   └── BoardActivity.kt
+│
+│   ├── settings/                   ← 설정 화면
+│   │   └── SettingsActivity.kt
+│
+│   ├── auth/                       ← 로그인 관련
+│   │   └── LoginActivity.kt
+│
+│   ├── splash/                     ← 앱 로딩 초기화면
+│   │   └── SplashActivity.kt
+│
+│   ├── detail/                     ← 상세 정보 보기
+│   │   └── DetailActivity.kt
+│
+│   └── notification/              ← 알림 보기
+│       └── NotificationActivity.kt
+│
+├── model/                          ← 데이터 모델 클래스
+├── adapter/                        ← RecyclerView 어댑터 등
+├── repository/                     ← 데이터 처리/통신 등
 ```
 ---
+
 
 ## 🎨 Layout 파일 네이밍 규칙
 
