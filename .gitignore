@@ -1,15 +1,51 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# ========== Android Studio 빌드/캐시 파일 ==========
+.gradle/
+build/
+**/build/
+.cxx/
+.externalNativeBuild/
+
+# ========== 안드로이드 자동 생성 및 개인 설정 ==========
 local.properties
+*.iml
+*.log
+*.keystore
+*.jks
+.idea/
+.idea/caches/
+.idea/libraries/
+.idea/shelf/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/vcs.xml
+.idea/uiDesigner.xml
+.idea/dataSources.*
+.idea/dynamic.xml
+.idea/gradle.xml
+.idea/navEditor.xml
+
+# ========== 팀원이 공유해도 괜찮은 설정은 예외 처리 ==========
+!.idea/codeStyles/
+!.idea/inspectionProfiles/
+
+# ========== macOS 임시 파일 ==========
+.DS_Store
+
+# ========== Kotlin/Java 관련 빌드 산출물 ==========
+*.class
+*.jar
+*.war
+*.zip
+*.tar.gz
+hs_err_pid*
+replay_pid*
+
+# ========== 기타 ==========
+captures/
+*.apk
+*.ap_
+*.aab
+*.dex
+
+# ========== Firebase 또는 민감 정보 ==========
+google-services.json
