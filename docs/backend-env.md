@@ -18,6 +18,7 @@ RecoTrip의 AI 추천 기능은 Node.js 기반 백엔드 서버에서 GPT API, G
 ---
 
 ## 📁 폴더 구조 예시
+```
 backend/
 ├── src/
 │   ├── routes/          # API 라우트
@@ -28,6 +29,7 @@ backend/
 ├── .env.example         # 환경 변수 예시
 ├── package.json         # 의존성 및 스크립트
 └── README.md            # 백엔드 설명 문서
+```
 ---
 
 ## 🌱 프로젝트 실행 방법
