@@ -1,46 +1,79 @@
 package com.f4.recotrip.ui.home
 
-import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import com.google.android.material.navigation.NavigationView
+import androidx.drawerlayout.widget.DrawerLayout
 import com.f4.recotrip.R
-import com.f4.recotrip.ui.plan.PlanActivity
-import com.f4.recotrip.ui.auth.LoginActivity
-import com.f4.recotrip.ui.board.BoardActivity
-import com.f4.recotrip.ui.settings.SettingsActivity
 
 class HomeActivity : AppCompatActivity() {
+
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
+    private lateinit var btnMenu: ImageButton
+    private lateinit var btnStart: Button
+    private lateinit var btnCheckPlan: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity_main)
 
-        // 예시: 추천 화면으로 이동하는 버튼
-        val btnGoToRecommendation = findViewById<Button>(R.id.btn_recommend)
-        btnGoToRecommendation.setOnClickListener {
-            startActivity(Intent(this, PlanActivity::class.java))
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navigationView = findViewById(R.id.navigation_view)
+        btnMenu = findViewById(R.id.btnMenu)
+        btnStart = findViewById(R.id.btnStart)
+
+
+        // 햄버거 메뉴 열기
+        btnMenu.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.END)
         }
 
-        val btnLogin = findViewById<Button>(R.id.btn_login)
-        btnLogin.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+        // 출발하기 버튼
+        btnStart.setOnClickListener {
+            Toast.makeText(this, "출발 준비 중입니다!", Toast.LENGTH_SHORT).show()
+            // TODO: 여행 추천 화면으로 이동
         }
 
-        val btnCommunity = findViewById<Button>(R.id.btn_community)
-        btnCommunity.setOnClickListener {
-            startActivity(Intent(this, BoardActivity::class.java))
-        }
 
-        val btnSettings = findViewById<Button>(R.id.btn_settings)
-        btnSettings.setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
+        // 네비게이션 메뉴 클릭 처리
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            handleNavigationItem(menuItem)
+            true
         }
+    }
 
-        // 다른 화면도 마찬가지로 버튼 만들 수 있어요
+    private fun handleNavigationItem(item: MenuItem) {
+        when (item.itemId) {
+            R.id.nav_plan -> {
+                Toast.makeText(this, "내 플랜 선택", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_board -> {
+                Toast.makeText(this, "게시판 선택", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_profile -> {
+                Toast.makeText(this, "내 정보 선택", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_privacy -> {
+                Toast.makeText(this, "개인정보 보기", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_logout -> {
+                Toast.makeText(this, "로그아웃 합니다", Toast.LENGTH_SHORT).show()
+            }
+        }
+        drawerLayout.closeDrawer(GravityCompat.END)
     }
 
     override fun onBackPressed() {
-        finishAffinity() // 앱 완전 종료
+        if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
+            drawerLayout.closeDrawer(GravityCompat.END)
+        } else {
+            super.onBackPressed()
+        }
     }
 }

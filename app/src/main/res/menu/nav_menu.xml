@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_plan"
+        android:title="내 플랜" />
+
+    <item
+        android:id="@+id/nav_board"
+        android:title="게시판" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:title="내 정보" />
+
+    <item android:title=" " /> <!-- 구분선 역할 -->
+
+    <item
+        android:id="@+id/nav_privacy"
+        android:title="개인정보" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="로그아웃" />
+</menu>
