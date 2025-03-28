@@ -13,8 +13,17 @@
         android:theme="@style/Theme.RecoTrip"
         tools:targetApi="31">
         <activity
-            android:name=".ui.board.BoardActivity"
+            android:name=".ui.board.PostDetailActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".ui.board.CitySelectActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.board.CommunityPostActivity"
+            android:exported="false" />
+
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="false" />
