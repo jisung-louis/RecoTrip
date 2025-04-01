@@ -36,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
 
         // 출발하기 버튼
         btnStart.setOnClickListener {
-            Toast.makeText(this, "출발 준비 중입니다!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "출발 준비 중입니다!!", Toast.LENGTH_SHORT).show()
             // TODO: 여행 추천 화면으로 이동
         }
 
