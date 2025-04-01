@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.f4.recotrip.R
 
 class CitySelectActivity : AppCompatActivity() {
-    private val recommendedCities = listOf("베이징", "도쿄", "뉴욕", "런던", "파리")
+    private val recommendedCities = listOf("바르셀로나", "도쿄", "뉴욕", "런던", "파리")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
