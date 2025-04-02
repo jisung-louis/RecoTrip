@@ -9,6 +9,8 @@ import com.f4.recotrip.ui.plan.PlanActivity
 import com.f4.recotrip.ui.auth.LoginActivity
 import com.f4.recotrip.ui.board.BoardActivity
 import com.f4.recotrip.ui.settings.SettingsActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class HomeActivity : AppCompatActivity() {
 
@@ -23,8 +25,19 @@ class HomeActivity : AppCompatActivity() {
         }
 
         val btnLogin = findViewById<Button>(R.id.btn_login)
+        val auth = Firebase.auth
+        val currentUser = auth.currentUser
+
+        btnLogin.text = if (currentUser == null) "로그인 / 회원가입" else "로그아웃"
+
         btnLogin.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            if (auth.currentUser == null) {
+                startActivity(Intent(this, LoginActivity::class.java))
+            } else {
+                auth.signOut()
+                btnLogin.text = "로그인 / 회원가입"
+                recreate()
+            }
         }
 
         val btnCommunity = findViewById<Button>(R.id.btn_community)
