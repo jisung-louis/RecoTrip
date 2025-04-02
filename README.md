@@ -102,7 +102,7 @@ java/com/f4/recotrip/
 
 | 항목 | 버전 |
 |------|------|
-| Kotlin | 1.9.0 |
+| Kotlin | 2.1.0 |
 | Gradle | 8.7 |
 | Android Gradle Plugin (AGP) | 8.6.1 |
 | compileSdk | 35 |
